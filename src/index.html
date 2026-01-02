@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+
+    <link href="./style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../assets/images/web-dev.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="bg-linear-to-br from-slate-900 via-indigo-900 to-slate-800 text-white flex flex-col min-h-screen">
+    <!-- Header -->
+    <header id="navbar" class="flex justify-between items-center p-6 relative">
+        <p class="text-2xl sm:text-4xl font-mono border border-white rounded-xl p-2">ALan Nguyen</p>
+
+        <!-- Desktop menu -->
+        <nav class="gap-6 text-xl items-center hidden sm:flex">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experiences">Experiences</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <!-- Hamburger button -->
+        <button id="menu-btn" class="sm:hidden text-3xl relative z-50">
+            <i id="menu-icon" class="fa-solid fa-bars transition-transform duration-300"></i>
+        </button>
+
+        <!-- Mobile Menu -->
+        <nav id="mobile-menu" class="absolute top-full left-0 w-full z-40 sm:hidden
+         bg-slate-900/95 backdrop-blur-md
+         transform -translate-y-4 opacity-0 pointer-events-none
+         transition-all duration-300 ease-out">
+            <ul class="flex flex-col items-center gap-6 p-6 text-xl">
+                <li><a href="#about" class="menu-link hover:text-cyan-400">About</a></li>
+                <li><a href="#skills" class="menu-link hover:text-cyan-400">Skills</a></li>
+                <li><a href="#experiences" class="menu-link hover:text-cyan-400">Experiences</a></li>
+                <li><a href="#contact" class="menu-link hover:text-cyan-400">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Overlay -->
+        <div id="menu-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm
+         opacity-0 pointer-events-none
+         transition-opacity duration-300 sm:hidden z-30">
+        </div>
+
+    </header>
+    <!-- Mobile Menu -->
+
+
+
+    <!-- <hr> -->
+
+    <!-- Main -->
+    <main class="flex flex-col items-center gap-40 sm:gap-100 mt-10">
+        <section id="hero" class="flex flex-col items-center gap-10 px-10 h-[80vh] sm:h-[80vh] ">
+
+            <div id="intro" class="flex flex-col grow gap-10 items-center justify-center sm:flex-row sm:gap-44">
+
+                <div class="flex flex-col gap-3">
+                    <p>Hello, I'm</p>
+                    <h2 class="tracking-[2px] text-4xl font-semibold mb-2 sm:text-6xl sm:tracking-[5px]">NGUYEN
+                        DINH
+                        THIEN</h2>
+                    <p class="text-2xl animate-typing sm:text-3xl">Software Developer</p>
+                    <div id="hero-icon">
+                        <ul class=" flex flex-row gap-10 text-2xl sm:text-3xl">
+                            <li><a href="#"><i class="fab fa-github" title="Github"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin" title="Linkedin"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube" title="YouTube"></i></a></li>
+                            <li><a href="#"><i class="fas fa-envelope" title="Email"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="hero-img" class="">
+                    <!-- <div class="w-64 h-64 sm:w-72 sm:h-72 rounded-full bg-amber-400">
+                        
+                    </div> -->
+                    <img src="../assets/images/avatar.jpg" alt="Avatar" class="w-64 h-64 sm:w-72 sm:h-72 rounded-full">
+                </div>
+            </div>
+
+            <div id="arrow-bound" class="animate-bounce">
+                <!-- <i class="fa-solid fa-arrow-down fa-2x"></i> -->
+                <p class="text-3xl font-bold">⌵</p>
+            </div>
+
+        </section>
+
+
+        <section id="about" class="w-[90%] sm:w-[80%] flex justify-center items-center scroll-mt-24">
+            <div id="about-container" class="w-full px-5 py-10 rounded-2xl shadow-lg text-white">
+                <!-- animate-fade-in-up-->
+                <h1 class="text-4xl sm:text-6xl font-bold mb-10 text-center tracking-wide">About Me</h1>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center">
+
+
+                    <!-- Text Content -->
+                    <div
+                        class="text-left sm:text-justify text-lg sm:text-xl leading-relaxed sm:leading-loose max-w-3xl mb-10 about-card">
+                        <p>
+                            Software Developer and IT Support Specialist with experience in software development, system
+                            maintenance, and technical operations. Played a key role in developing a Customer
+                            Relationship
+                            Management (CRM) system with functional modules for user management, reporting, and business
+                            process automation.
+                        </p>
+                        <br>
+                        <p>
+                            Also experienced in software deployment, end-user training, and technical support. Proactive
+                            in
+                            researching and implementing system optimization solutions to enhance performance and
+                            improve
+                            user experience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+
+        <section id="experiences" class="px-10 w-[80%] scroll-mt-24">
+            <h1 class="text-4xl sm:text-6xl font-bold mb-12 text-center">Experiences</h1>
+
+            <!-- Hàng 1: 2 kinh nghiệm thực tế -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:w-[90%] mx-auto mb-10">
+                <!-- Experience 1 -->
+                <div class="border card-rotate rounded-xl p-6 bg-slate-800 border-slate-600 shadow-lg">
+                    <h2 class="text-2xl sm:text-3xl font-semibold mb-2">Back-end Developer</h2>
+                    <p class="italic mb-2">International Distribution Corporation | 09/2022 – 10/2023</p>
+                    <p class="mb-2 text-sm sm:text-base">Web application client use to manage
+                        customers, call logs, history interactive between clients
+                        and customers (activities), users of the system, and
+                        reports.</p>
+                    <ul class="list-disc list-inside text-sm sm:text-base">
+                        <li>Front-end: Joget low-code, JavaScript, Bootstrap</li>
+                        <li>Back-end: Java Spring Framework, MySQL, RabbitMQ, 3CX</li>
+                    </ul>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="border card-rotate rounded-xl p-6 bg-slate-800 border-slate-600 shadow-lg">
+                    <h2 class="text-2xl sm:text-3xl font-semibold mb-2">Technical Staff</h2>
+                    <p class="italic mb-2">Nhat Phat Phat Office Equipment Service And
+                        Trading Company Limited
+                        | 03/2024 – Present</p>
+                    <ul class="list-disc list-inside text-sm sm:text-base">
+                        <li>Conduct site surveys, install hardware devices, and deploy software.</li>
+                        <li>Connect attendance machines to the system via LAN or remotely (static IP, WAN).</li>
+                        <li>Train customers on using the software across computers and mobile devices.</li>
+                        <li>Provide technical support and troubleshooting during system operation.</li>
+                        <li>Install related software to ensure smooth and efficient workflows.</li>
+                        <li>Inspect office devices (attendance machines, paper shredders) and plan maintenance or
+                            repairs when needed.</li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Hàng 2: Mini Projects -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:w-[90%] mx-auto">
+                <!-- Project 1 -->
+                <div class="border card-rotate rounded-xl p-6 bg-slate-800 border-slate-600 shadow-lg">
+                    <h2 class="text-xl sm:text-2xl font-semibold mb-2">📚 Flutter Book Manager</h2>
+                    <p class="text-sm">Mobile app to manage book collections, using Flutter and SQLite.</p>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="border card-rotate rounded-xl p-6 bg-slate-800 border-slate-600 shadow-lg">
+                    <h2 class="text-xl sm:text-2xl font-semibold mb-2">🌐 Tailwind Portfolio</h2>
+                    <p class="text-sm">Responsive portfolio website built with Tailwind CSS and Font Awesome.</p>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="border card-rotate rounded-xl p-6 bg-slate-800 border-slate-600 shadow-lg">
+                    <h2 class="text-xl sm:text-2xl font-semibold mb-2">🎮 Flappy Bird</h2>
+                    <p class="text-sm">2D game built with Godot engine, featuring physics and sprite animation.</p>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="border card-rotate rounded-xl p-6 bg-slate-800 border-slate-600 shadow-lg">
+                    <h2 class="text-xl sm:text-2xl font-semibold mb-2">🧠 Java Update IP NoIP</h2>
+                    <p class="text-sm">Java tool to auto-update dynamic IP to NoIP DNS service via API.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="skills" class="w-[90%] sm:w-[80%] text-center px-10 scroll-mt-24">
+            <h1 class="text-4xl sm:text-6xl font-bold mb-12">Skills</h1>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Java -->
+                <div
+                    class="p-6 rounded-xl shadow-lg bg-linear-to-br from-yellow-500 to-yellow-700 hover:scale-105 cursor-pointer card-skill">
+                    <i class="fab fa-java text-white text-5xl mb-4"></i>
+                    <h2 class="text-xl sm:text-2xl font-semibold">Java</h2>
+                </div>
+
+                <!-- Tailwind -->
+                <div
+                    class="p-6 rounded-xl shadow-lg bg-linear-to-br from-blue-400 to-blue-600 hover:scale-105 cursor-pointer card-skill">
+                    <i class="fas fa-wind text-white text-5xl mb-4"></i>
+                    <h2 class="text-xl sm:text-2xl font-semibold">Tailwind</h2>
+                </div>
+
+                <!-- Flutter -->
+                <div
+                    class="p-6 rounded-xl shadow-lg bg-linear-to-br from-cyan-400 to-blue-500 hover:scale-105 cursor-pointer card-skill">
+                    <i class="fas fa-mobile-alt text-white text-5xl mb-4"></i>
+                    <h2 class="text-xl sm:text-2xl font-semibold">Flutter</h2>
+                </div>
+
+                <!-- Godot -->
+                <div
+                    class="p-6 rounded-xl shadow-lg bg-linear-to-br from-purple-500 to-indigo-600 hover:scale-105 cursor-pointer card-skill">
+                    <i class="fas fa-gamepad text-white text-5xl mb-4"></i>
+                    <h2 class="text-xl sm:text-2xl font-semibold">Godot</h2>
+                </div>
+
+                <!-- SQL -->
+                <div
+                    class="p-6 rounded-xl shadow-lg bg-linear-to-br from-green-500 to-green-700 hover:scale-105 cursor-pointer card-skill">
+                    <i class="fas fa-database text-white text-5xl mb-4"></i>
+                    <h2 class="text-xl sm:text-2xl font-semibold">SQL</h2>
+                </div>
+
+                <!-- Git -->
+                <div
+                    class="p-6 rounded-xl shadow-lg bg-linear-to-br from-gray-600 to-black hover:scale-105 cursor-pointer card-skill">
+                    <i class="fab fa-git-alt text-white text-5xl mb-4"></i>
+                    <h2 class="text-xl sm:text-2xl font-semibold">Git</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- <hr class="w-full border-t-2 border-white my-5"> -->
+
+
+        <section id="contact"
+            class="sm:w-[80%] mx-auto text-center grid grid-cols-1 sm:grid-cols-2 gap-10 my-10 px-10 scroll-mt-24">
+            <div class="text-left">
+                <h1 class="text-4xl text-center font-bold mb-6 sm:text-6xl sm:text-left">Contact Me</h1>
+                <h2 class="text-lg sm:text-xl">I already joined some projects and I am looking for a job. I notice that
+                    I am not the best
+                    candidate,
+                    but I am willing to learn and improve myself. I expect that you will give me a chance to prove
+                    myself.
+                    If my portfolio fits your job posting and you have any questions, please contact me.</h2>
+            </div>
+            <form class="flex flex-col gap-4">
+                <input type="text" placeholder="Your Name"
+                    class="w-full  p-3 border border-white rounded-lg bg-transparent text-white">
+                <input type="email" placeholder="Your Email"
+                    class="w-full  p-3 border border-white rounded-lg bg-transparent text-white">
+                <textarea placeholder="Your Message" rows="5"
+                    class="w-full  p-3 border border-white rounded-lg bg-transparent text-white"></textarea>
+                <button type="submit"
+                    class="bg-white text-[#293e61] w-full font-semibold px-6 py-3 rounded-lg hover:bg-gray-300 transition duration-300 ">
+                    Send Message
+                </button>
+            </form>
+        </section>
+
+        <section id="floating-button" class="fixed bottom-3 right-3 sm:bottom-8 sm:right-8 text-xl sm:text-4xl">
+
+            <i class="fa-solid fa-arrow-up cursor-pointer animate-bounce" title="Top"
+                onclick="window.scrollTo({top: 0, behavior: 'smooth'})"></i>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="text-center p-4 mt-auto bg-slate-900 border-t border-slate-700">
+            <!-- <p>&copy; 2022 - ALan Nguyen. All rights reserved.</p> -->
+            <p id="year-range"></p>
+        </div>
+    </footer>
+</body>
+<script src="./intersection-oberserver.js"></script>
+<script>
+    // Dynamically set the year range in the footer
+    const startYear = 2022;
+    const currentYear = new Date().getFullYear();
+    const yearRangeElement = document.getElementById('year-range');
+    if (currentYear > startYear) {
+        yearRangeElement.textContent = `© ${startYear} - ${currentYear} ALan Nguyen.`;
+    } else {
+        yearRangeElement.textContent = `© ${startYear} ALan Nguyen.`;
+    }
+
+
+    // Initialize Intersection Observer for animations
+    observeElements('.card-skill', 'animate-card-skill-show');
+    observeElements('.about-card', 'animate-about-card-show');
+    reverstObserveElements('#hero', '#floating-button');
+
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIcon = document.getElementById("menu-icon");
+    const menuLinks = document.querySelectorAll(".menu-link");
+    const overlay = document.getElementById("menu-overlay");
+
+    function openMenu() {
+        mobileMenu.classList.add("menu-open");
+        overlay.classList.add("overlay-open");
+        menuIcon.classList.replace("fa-bars", "fa-xmark");
+        document.body.classList.add("overflow-hidden"); // disable scroll
+    }
+
+    function closeMenu() {
+        mobileMenu.classList.remove("menu-open");
+        overlay.classList.remove("overlay-open");
+        menuIcon.classList.replace("fa-xmark", "fa-bars");
+        document.body.classList.remove("overflow-hidden"); // enable scroll
+    }
+
+    menuBtn.addEventListener("click", () => {
+        const isOpen = mobileMenu.classList.contains("menu-open");
+        isOpen ? closeMenu() : openMenu();
+    });
+
+    // Click overlay → close
+    overlay.addEventListener("click", closeMenu);
+
+    // Click menu link → auto close
+    menuLinks.forEach(link => {
+        link.addEventListener("click", closeMenu);
+    });
+
+
+
+</script>
+
+</html>
