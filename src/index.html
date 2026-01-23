@@ -244,22 +244,23 @@
             class="sm:w-[80%] mx-auto text-center grid grid-cols-1 sm:grid-cols-2 gap-10 my-10 px-10 scroll-mt-24">
             <div class="text-left">
                 <h1 class="text-4xl text-center font-bold mb-6 sm:text-6xl sm:text-left">Contact Me</h1>
-                <h2 class="text-lg sm:text-xl">I already joined some projects and I am looking for a job. I notice that
-                    I am not the best
-                    candidate,
-                    but I am willing to learn and improve myself. I expect that you will give me a chance to prove
-                    myself.
-                    If my portfolio fits your job posting and you have any questions, please contact me.</h2>
+                <h2 class="text-lg sm:text-xl">I have worked on several projects and am currently seeking a job
+                    opportunity.
+                    While I may not be the best candidate yet, I am highly motivated to learn and grow.
+                    I would appreciate the chance to prove myself.
+                    If my portfolio fits your job posting or if you have any questions, please feel free to reach out.
+                </h2>
             </div>
-            <form class="flex flex-col gap-4">
-                <input type="text" placeholder="Your Name"
+            <form id="contact-form" class="flex flex-col gap-4">
+                <input type="text" name="from_name" placeholder="Your Name"
                     class="w-full  p-3 border border-white rounded-lg bg-transparent text-white">
-                <input type="email" placeholder="Your Email"
+                <input type="email" name="from_email" placeholder="Your Email"
                     class="w-full  p-3 border border-white rounded-lg bg-transparent text-white">
-                <textarea placeholder="Your Message" rows="5"
+                <textarea name="message" placeholder="Your Message" rows="5"
                     class="w-full  p-3 border border-white rounded-lg bg-transparent text-white"></textarea>
-                <button type="submit"
+                <button id="submit-button" type="submit"
                     class="bg-white text-[#293e61] w-full font-semibold px-6 py-3 rounded-lg hover:bg-gray-300 transition duration-300 ">
+                    <!-- <svg id="submit-loading" class="mr-3 size-5 animate-spin" viewBox="0 0 24 24"></svg> -->
                     Send Message
                 </button>
             </form>
@@ -281,7 +282,10 @@
         </div>
     </footer>
 </body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
 <script src="./intersection-oberserver.js"></script>
+<script src="./email.js"></script>
 <script src="./match-media.js"></script>
 <script>
     // Dynamically set the year range in the footer
@@ -345,6 +349,37 @@
     //         console.log('nhỏ hơn sm');
     //     }
     // });
+
+    // EmailJS form submission
+
+    emailjs.init("AcRtnUrmlMw46oj2o");
+
+    const form = document.getElementById("contact-form");
+    const submitButton = document.getElementById("submit-button");
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        submitButton.textContent = "Sending...";
+
+        emailjs.sendForm(
+            "service_jlggsi8",
+            "template_o79f4cv",
+            this
+        ).then(
+            () => {
+                alert("Message sent successfully!");
+                submitButton.textContent = "Send Message";
+                form.reset();
+            },
+            (error) => {
+                alert("Failed to send message.");
+                submitButton.textContent = "Send Message";
+                console.error(error);
+            }
+        );
+    });
+
 
 </script>
 
