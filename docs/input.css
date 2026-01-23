@@ -1,0 +1,269 @@
+@import "tailwindcss";
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+@theme {
+
+    /* Custom base styles can go here */
+    --animate-scale: scale 1s ease-in-out infinite alternate;
+
+    @keyframes scale {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(1.2);
+        }
+
+    }
+
+
+    @keyframes typing {
+
+        /* 0% {
+            width: 0%;
+            visibility: hidden;
+        }
+
+        100% {
+            width: 100%;
+        } */
+        from {
+            width: 0ch;
+            visibility: hidden;
+
+        }
+
+        to {
+            width: 18ch;
+            /* số ký tự của text */
+
+        }
+
+    }
+
+    @keyframes blink {
+        50% {
+            border-color: transparent;
+        }
+
+        100% {
+            border-color: white;
+        }
+    }
+
+    --animate-typing: typing 3s steps(19) infinite alternate,
+    blink .7s infinite;
+
+
+
+}
+
+@layer utilities {
+    .animate-scale {
+        animation: var(--animate-scale);
+    }
+
+    .animate-typing {
+        animation: var(--animate-typing);
+        @apply overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5;
+    }
+
+    @keyframes appear {
+        from {
+            opacity: 0;
+            transform: scale(0.6);
+            /* bắt đầu nhỏ hơn */
+
+            /* clip-path: inset(100% 100% 100% 100%); */
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+            /* clip-path: inset(0 0 0 0); */
+        }
+    }
+
+    .animate-appear {
+        animation: appear linear;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+    }
+
+
+    /*--------------------*/
+
+
+    /* hide scrollbar but keep scroll */
+    .hide-scrollbar {
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE, Edge cũ */
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari */
+    }
+
+
+    /*--------------------*/
+
+    .card-rotate {
+        /* perspective: 2000px; */
+        transform-style: preserve-3d;
+        animation: rotateCard 0.5s ease-in-out;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+    }
+
+    @keyframes rotateCard {
+        from {
+            transform: rotateX(20deg) rotateY(20deg);
+            /*translateY(-20px)*/
+
+        }
+
+        to {
+            transform: rotate(0deg) translateY(0px);
+
+        }
+    }
+
+
+    /*--------------------*/
+
+
+    .animate-fade-in-up {
+        animation: fadeInUp 1s ease-out;
+        animation-timeline: view();
+        animation-range: entry 0% cover 50%;
+    }
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: scale(1.5);
+
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+
+    /*--------------------*/
+
+
+    .card-skill {
+        opacity: 0;
+        transform: translateY(50%);
+        transition: all 0.5s ease-out;
+    }
+
+    .animate-card-skill-show {
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+
+
+    /*--------------------*/
+
+
+
+    .about-card {
+        transition: all 0.8s ease-out;
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    .animate-about-card-show {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .floating-button-toggle-show {
+        display: block;
+    }
+
+    /*--------------------*/
+
+    .mobile-open {
+        animation: slideDown 0.3s ease forwards;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /*--------------------*/
+
+    .animate-hamburger-open {
+        animation: hamburgerOpen 0.3s ease normal;
+    }
+
+    @keyframes hamburgerOpen {
+        from {
+            transform: scaleY(0);
+        }
+
+        to {
+            transform: scaleY(1);
+        }
+    }
+
+    /*--------------------*/
+    .animate-hamburger-close {
+        animation: mobileMenuShow 0.3s ease forwards;
+    }
+
+    @keyframes hamburgerClose {
+        from {
+            transform: scale(1) rotate(90deg);
+        }
+
+        to {
+            opacity: 0;
+            transform: scale(0) rotate(0deg);
+        }
+    }
+
+    /*--------------------*/
+
+    /* #mobile-menu {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease, opacity 0.5s ease;
+
+
+    } */
+
+    .menu-open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .overlay-open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
