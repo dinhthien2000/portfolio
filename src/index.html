@@ -121,11 +121,11 @@
 
 
 
-        <section id="experiences" class="px-10 w-[80%] scroll-mt-24">
+        <section id="experiences" class="w-[80%] scroll-mt-24">
             <h1 class="text-4xl sm:text-6xl font-bold mb-12 text-center">Experiences</h1>
 
             <!-- Hàng 1: 2 kinh nghiệm thực tế -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:w-[90%] mx-auto mb-10">
+            <div id="experience-real" class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:w-[90%] mx-auto mb-10">
                 <!-- Experience 1 -->
                 <div class="border card-rotate rounded-xl p-6 bg-slate-800 border-slate-600 shadow-lg">
                     <h2 class="text-2xl sm:text-3xl font-semibold mb-2">Back-end Developer</h2>
@@ -134,6 +134,7 @@
                         customers, call logs, history interactive between clients
                         and customers (activities), users of the system, and
                         reports.</p>
+                    <button class="js-toggle sm:hidden">Show more</button>
                     <ul class="list-disc list-inside text-sm sm:text-base">
                         <li>Front-end: Joget low-code, JavaScript, Bootstrap</li>
                         <li>Back-end: Java Spring Framework, MySQL, RabbitMQ, 3CX</li>
@@ -188,7 +189,7 @@
         </section>
 
 
-        <section id="skills" class="w-[90%] sm:w-[80%] text-center px-10 scroll-mt-24">
+        <section id="skills" class="w-[90%] sm:w-[80%] text-center scroll-mt-24">
             <h1 class="text-4xl sm:text-6xl font-bold mb-12">Skills</h1>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -281,6 +282,7 @@
     </footer>
 </body>
 <script src="./intersection-oberserver.js"></script>
+<script src="./match-media.js"></script>
 <script>
     // Dynamically set the year range in the footer
     const startYear = 2022;
@@ -333,7 +335,16 @@
         link.addEventListener("click", closeMenu);
     });
 
+    /**********************/
 
+    // Ví dụ sử dụng media query trong JavaScript
+    // watchBreakpoint('sm', (isMatch) => {
+    //     if (isMatch) {
+    //         console.log('sm hoặc lớn hơn');
+    //     } else {
+    //         console.log('nhỏ hơn sm');
+    //     }
+    // });
 
 </script>
 
