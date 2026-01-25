@@ -272,6 +272,44 @@
                 onclick="window.scrollTo({top: 0, behavior: 'smooth'})"></i>
 
         </section>
+
+        <div id="notification-success" class="fixed hidden max-w-sm w-full
+           border border-green-500 bg-slate-800 text-white
+           rounded-xl p-4 shadow-lg">
+
+            <div class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-check text-green-500 text-2xl mt-1"></i>
+
+                <div>
+                    <p class="font-semibold text-green-400">
+                        Message sent successfully
+                    </p>
+                    <p class="text-sm text-gray-300 mt-1">
+                        I’ve received your message and will get back to you as soon as possible.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="notification-failed" class="fixed hidden max-w-sm w-[90%]
+           border border-red-500 bg-slate-800 text-white
+           rounded-xl p-4 shadow-lg">
+
+            <div class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-xmark text-red-500 text-2xl mt-1"></i>
+
+                <div>
+                    <p class="font-semibold text-red-400">
+                        Failed to send message
+                    </p>
+                    <p class="text-sm text-gray-300 mt-1">
+                        Sorry, something went wrong while sending your message. Please try again.
+                    </p>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <!-- Footer -->
@@ -352,33 +390,79 @@
 
     // EmailJS form submission
 
-    emailjs.init("AcRtnUrmlMw46oj2o");
+
+    const notificationSuccess = document.getElementById("notification-success");
+    const notificationFailed = document.getElementById("notification-failed");
+
+    function showNotification(id) {
+        const el = document.getElementById(id);
+        el.classList.remove("hidden");
+        el.classList.add("animate-fade-in-up");
+
+        setTimeout(() => {
+            el.classList.remove("animate-fade-in-up");
+            el.classList.add("hidden");
+
+        }, 3000);
+
+    }
+
+    function checkForm() {
+        const name = document.querySelector("[name='from_name']").value.trim();
+        const email = document.querySelector("[name='from_email']").value.trim();
+        const message = document.querySelector("[name='message']").value.trim();
+
+        if (!name || !email || !message) {
+            alert("Please fill in all fields in Form Contact!");
+            return false;
+        }
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            alert("Email không hợp lệ!");
+            return false;
+        }
+
+        return true;
+    }
+
+
+    // Initialize EmailJS
+    emailjs.init("Vi_KzHMLoYFxkM5Co"); // Public Key
 
     const form = document.getElementById("contact-form");
     const submitButton = document.getElementById("submit-button");
 
     form.addEventListener("submit", function (e) {
-        e.preventDefault();
+        e.preventDefault(); // ✅ chặn reload NGAY LẬP TỨC
+
+        if (!checkForm()) {
+            return;
+        }
 
         submitButton.textContent = "Sending...";
 
         emailjs.sendForm(
-            "service_jlggsi8",
-            "template_o79f4cv",
+            "service_z2nw5j5", // Service ID
+            "template_9kaaq1g", // Template ID
             this
         ).then(
             () => {
-                alert("Message sent successfully!");
+                // alert("Message sent successfully!");
+                showNotification("notification-success");
                 submitButton.textContent = "Send Message";
                 form.reset();
             },
             (error) => {
-                alert("Failed to send message.");
+                // alert("Failed to send message.");
+                showNotification("notification-failed");
                 submitButton.textContent = "Send Message";
                 console.error(error);
             }
         );
     });
+
+
 
 
 </script>
