@@ -141,21 +141,40 @@ html {
 
 
     .animate-fade-in-up {
-        animation: fadeInUp 1s ease-out;
-        animation-timeline: view();
-        animation-range: entry 0% cover 50%;
+        animation: fadeInUp 500ms ease-out;
+        /* animation-timeline: view();
+        animation-range: entry 0% cover 50%; */
     }
 
     @keyframes fadeInUp {
         0% {
             opacity: 0;
-            transform: scale(1.5);
+            transform: scale(0.5);
 
         }
 
         100% {
             opacity: 1;
             transform: scale(1);
+        }
+    }
+
+    .animate-fade-in-up-reverse {
+        animation: fadeInUpReverse 500ms ease-out;
+        /* animation-timeline: view();
+        animation-range: entry 0% cover 50%; */
+    }
+
+    @keyframes fadeInUpReverse {
+        0% {
+            opacity: 1;
+            transform: scale(1);
+
+        }
+
+        100% {
+            opacity: 0;
+            transform: scale(0.5);
         }
     }
 
@@ -266,4 +285,6 @@ html {
         opacity: 1;
         pointer-events: auto;
     }
+
+    /*--------------------*/
 }
